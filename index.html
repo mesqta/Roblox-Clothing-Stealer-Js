@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roupas Roblox - Aplicador de Templates</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Roupas Roblox</h1>
+        <p>Selecione seus templates e aplique sobreposição para criar roupas personalizadas.</p>
+    </header>
+    <main>
+        <label for="file1">Template da Roupa com Copy:</label>
+        <input type="file" id="file1" accept="image/*">
+        <br>
+        <label for="file2">Sua Template:</label>
+        <input type="file" id="file2" accept="image/*">
+        <br>
+        <button onclick="applyOverlay()">Aplicar Sobreposição</button>
+        <a id="download-link" class="download-link" download="roupa_roblox.png">Download Imagem Resultante</a>
+        <div id="result"></div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
