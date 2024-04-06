@@ -35,6 +35,11 @@ function applyOverlay() {
 
                     downloadLink.style.display = 'inline-block';
                     downloadLink.href = imageURL;
+
+                    var fileName = prompt('Por favor, insira o nome do arquivo:', 'roupa_roblox.png');
+                    if (fileName) {
+                        downloadLink.download = fileName;
+                    }
                 };
                 img2.src = e2.target.result;
             };
