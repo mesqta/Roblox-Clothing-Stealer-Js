@@ -36,7 +36,7 @@ function applyOverlay() {
                     downloadLink.style.display = 'inline-block';
                     downloadLink.href = imageURL;
 
-                    var fileName = prompt('Por favor, insira o nome do arquivo:', 'roupa_roblox.png');
+                    var fileName = prompt('Por favor, insira o nome do arquivo:', ',');
                     if (fileName) {
                         downloadLink.download = fileName;
                     }
