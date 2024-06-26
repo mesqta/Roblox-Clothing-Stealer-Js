@@ -36,7 +36,7 @@ function applyOverlay() {
                     downloadLink.style.display = 'inline-block';
                     downloadLink.href = imageURL;
 
-                    var fileName = prompt('Por favor, insira o nome do arquivo:', ',');
+                    var fileName = prompt('Por favor, insira o nome do arquivo:', '空');
                     if (fileName) {
                         downloadLink.download = fileName;
                     }
