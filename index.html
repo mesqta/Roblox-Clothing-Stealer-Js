@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roupas Roblox - Aplicador de Templates</title>
+    <title>Modification of Roblox clothes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Roupas Roblox</h1>
-        <p>Selecione seus templates e aplique sobreposição para criar roupas personalizadas.</p>
+        <h1>Overlay and removal of copyright from Roblox clothes</h1>
+        <p>Select the clothing template to remove the copyright, and then your template to be applied for the overlay.</p>
     </header>
     <main>
-        <label for="file1">Template da Roupa com Copy:</label>
-        <input type="file" id="file1" accept="image/*">
-        <br>
-        <label for="file2">Sua Template:</label>
-        <input type="file" id="file2" accept="image/*">
-        <br>
-        <button onclick="applyOverlay()">Aplicar Sobreposição</button>
-        <a id="download-link" class="download-link" download="roupa_roblox.png">Download Imagem</a>
-        <div id="result"></div>
+        <section class="content">
+            <div class="upload-section">
+                <label for="file1">1. Imported clothing with the copyright:</label>
+                <input type="file" id="file1" accept="image/*">
+                <label for="file2">2. Apply your template and add your copyright:</label>
+                <input type="file" id="file2" accept="image/*">
+                <button onclick="applyOverlay()">Aplicar Sobreposição</button>
+                <a id="download-link" class="download-link" download="roupa_roblox.png">Download</a>
+            </div>
+            <div id="result"></div>
+        </section>
     </main>
     <script src="scripts.js"></script>
 </body>

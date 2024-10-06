@@ -1,34 +1,42 @@
 function applyOverlay() {
-    var fileInput1 = document.getElementById('file1');
-    var fileInput2 = document.getElementById('file2');
-    var resultDiv = document.getElementById('result');
-    var downloadLink = document.getElementById('download-link');
+    const fileInput1 = document.getElementById('file1');
+    const fileInput2 = document.getElementById('file2');
+    const customText = document.getElementById('customText').value;
+    const resultDiv = document.getElementById('result');
+    const downloadLink = document.getElementById('download-link');
+    const uploadSection = document.querySelector('.upload-section');
 
     if (fileInput1.files.length === 0 || fileInput2.files.length === 0) {
-        alert('Por favor, selecione ambos os templates.');
+        alert('Enter the templates');
         return;
     }
 
-    var file1 = fileInput1.files[0];
-    var file2 = fileInput2.files[0];
+    const file1 = fileInput1.files[0];
+    const file2 = fileInput2.files[0];
 
-    var reader1 = new FileReader();
+    const reader1 = new FileReader();
     reader1.onload = function (e1) {
-        var reader2 = new FileReader();
+        const reader2 = new FileReader();
         reader2.onload = function (e2) {
-            var img1 = new Image();
+            const img1 = new Image();
             img1.onload = function () {
-                var canvas = document.createElement('canvas');
+                const canvas = document.createElement('canvas');
                 canvas.width = img1.width;
                 canvas.height = img1.height;
-                var ctx = canvas.getContext('2d');
+                const ctx = canvas.getContext('2d');
                 ctx.drawImage(img1, 0, 0);
-                
-                var img2 = new Image();
+
+                const img2 = new Image();
                 img2.onload = function () {
                     ctx.drawImage(img2, 0, 0);
-                    var imageURL = canvas.toDataURL('image/png');
-                    var imgResult = document.createElement('img');
+
+                    ctx.font = "12px Arial";
+                    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+                    ctx.textAlign = "right";
+                    ctx.fillText("protected content", canvas.width - 10, canvas.height - 10);
+
+                    const imageURL = canvas.toDataURL('image/png');
+                    const imgResult = document.createElement('img');
                     imgResult.src = imageURL;
                     resultDiv.innerHTML = '';
                     resultDiv.appendChild(imgResult);
@@ -36,10 +44,13 @@ function applyOverlay() {
                     downloadLink.style.display = 'inline-block';
                     downloadLink.href = imageURL;
 
-                    var fileName = prompt('Por favor, insira o nome do arquivo:', '空');
+                    const fileName = prompt('Enter the name of the application:', 'roupa_roblox.png');
                     if (fileName) {
                         downloadLink.download = fileName;
                     }
+
+                    uploadSection.classList.add('slide-left');
+                    resultDiv.classList.add('show');
                 };
                 img2.src = e2.target.result;
             };
