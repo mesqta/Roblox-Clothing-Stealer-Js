@@ -1,7 +1,6 @@
 function applyOverlay() {
     const fileInput1 = document.getElementById('file1');
     const fileInput2 = document.getElementById('file2');
-    const customText = document.getElementById('customText').value;
     const resultDiv = document.getElementById('result');
     const downloadLink = document.getElementById('download-link');
     const uploadSection = document.querySelector('.upload-section');
@@ -29,12 +28,6 @@ function applyOverlay() {
                 const img2 = new Image();
                 img2.onload = function () {
                     ctx.drawImage(img2, 0, 0);
-
-                    ctx.font = "12px Arial";
-                    ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
-                    ctx.textAlign = "right";
-                    ctx.fillText("protected content", canvas.width - 10, canvas.height - 10);
-
                     const imageURL = canvas.toDataURL('image/png');
                     const imgResult = document.createElement('img');
                     imgResult.src = imageURL;
@@ -44,7 +37,7 @@ function applyOverlay() {
                     downloadLink.style.display = 'inline-block';
                     downloadLink.href = imageURL;
 
-                    const fileName = prompt('Enter the name of the application:', 'roupa_roblox.png');
+                    const fileName = prompt('Enter the name of the application', 'roupa_roblox.png');
                     if (fileName) {
                         downloadLink.download = fileName;
                     }
